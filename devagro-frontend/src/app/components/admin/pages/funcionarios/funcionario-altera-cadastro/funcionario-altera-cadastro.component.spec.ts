@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { FuncionarioAlteraCadastroComponent } from './funcionario-altera-cadastro.component';
 
@@ -8,7 +9,11 @@ describe('FuncionarioAlteraCadastroComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FuncionarioAlteraCadastroComponent ]
+      declarations: [ FuncionarioAlteraCadastroComponent ],
+      imports: [
+        FormsModule,
+        ReactiveFormsModule
+      ]
     })
     .compileComponents();
 

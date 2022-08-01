@@ -15,23 +15,23 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: '/fazendas',
+    path: 'fazendas',
     component: FazendasComponent,
   },
   {
-    path: '/funcionarios',
+    path: 'funcionarios',
     component: FuncionariosComponent,
   },
   {
-    path: '/funcionarios/cadastro',
+    path: 'funcionarios/cadastro',
     component:FuncionarioCadastroComponent
   },
   {
-    path:'/funcionarios/cadastro/alterar',
+    path:'funcionarios/cadastro/alterar',
     component:FuncionarioAlteraCadastroComponent
   },
   {
-    path: '/graos',
+    path: 'graos',
     component: GraosComponent,
   },
   

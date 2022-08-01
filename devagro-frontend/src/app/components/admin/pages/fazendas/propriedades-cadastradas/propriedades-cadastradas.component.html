@@ -20,14 +20,14 @@
       <thead>
         <tr>
           <th scope="col">Nome da propriedade</th>
-          <th scope="col">Previsão de coleita</th>
+          <th scope="col">Previsão de colheita</th>
         </tr>
       </thead>
 
       <tbody class="table-group-divider">
         <tr *ngFor="let fazenda of listaFazenda; let i = index">
           <td>{{ fazenda.nome }}</td>
-          <td>{{ fazenda.ultima_colheita }}</td>
+          <td>{{ fazenda.ultimaColheita }}</td>
         </tr>
       </tbody>
 

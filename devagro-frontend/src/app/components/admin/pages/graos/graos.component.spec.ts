@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { GraosComponent } from './graos.component';
 
@@ -8,7 +9,8 @@ describe('GraosComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GraosComponent ]
+      declarations: [ GraosComponent ],
+      imports: [RouterTestingModule]
     })
     .compileComponents();
   });

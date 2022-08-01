@@ -11,11 +11,8 @@ export class FazendasComponent implements OnInit {
 
   @Input() public titulo: string = "Fazendas"
 
-  
-
   ngOnInit(): void {
 
-    
 
   }
 

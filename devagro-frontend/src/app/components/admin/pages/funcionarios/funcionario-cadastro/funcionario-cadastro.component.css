@@ -1,4 +1,4 @@
-h1{
+/* h1{
     color: var(--main-green-color);
 }
 
@@ -55,14 +55,14 @@ button{
     left:  5%;
   }
   
-  /* Hide default HTML checkbox */
+   Hide default HTML checkbox 
   .switch input {
     opacity: 0;
     width: 0;
     height: 0;
   }
   
-  /* The slider */
+    The slider
   .slider {
     position: absolute;
     cursor: pointer;
@@ -107,4 +107,4 @@ button{
   
   .slider.round:before {
     border-radius: 50%;
-  }
+  } */

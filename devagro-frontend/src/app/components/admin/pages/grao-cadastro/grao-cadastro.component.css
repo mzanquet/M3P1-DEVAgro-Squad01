@@ -1,11 +1,11 @@
 
-.borda{
+/* .borda{
     background-color: #fff;
     width:1100px;
     border-style: solid;
     border-color: var(--main-green-color);
     border-radius: 10px;
-    border-width: 3px;
+    border-width: 1px;
     
 }
 
@@ -19,7 +19,7 @@
 .input {
     border-color: var(--main-green-color);
     border-radius: 8px;
-    border-width: 3px;
+    border-width: 1px;
     position: relative;
     left: 5vh;
     Width: 1000px;
@@ -66,4 +66,4 @@ input:invalid, textarea:invalid {
 
 input:valid, textarea:valid {
     border-color: #375F24;
-}
+} */

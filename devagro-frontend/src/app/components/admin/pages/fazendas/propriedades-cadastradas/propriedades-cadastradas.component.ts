@@ -38,7 +38,7 @@ export class PropriedadesCadastradasComponent implements OnInit {
   }
 }
 
-// Treixo abaixo retirado da resposta apresentada pelo usuário Inigo no forum StackOverflow no seguinte link:
+// Trecho abaixo retirado da resposta apresentada pelo usuário Inigo no forum StackOverflow no seguinte link:
 // https://stackoverflow.com/a/68279093
 
 type sortArg<T> = keyof T | `-${string & keyof T}`

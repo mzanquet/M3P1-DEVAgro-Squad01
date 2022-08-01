@@ -16,7 +16,7 @@
           required
           minlength="2"
           #NOME_EMPRESARIAL
-          (keyup)="salvar_nome_empresarial(NOME_EMPRESARIAL.value)"
+          (keyup)="salvarNomeEmpresarial(NOME_EMPRESARIAL.value)"
         />
 
         <h5>CNPJ</h5>
@@ -28,7 +28,7 @@
           minlength="2"
           maxlength="14"
           #SALVAR_CNPJ
-          (keyup)="salvar_CNPJ(SALVAR_CNPJ.value)"
+          (keyup)="salvarCnpj(SALVAR_CNPJ.value)"
         />
 
         <h5>Endereço da Sede</h5>
@@ -38,8 +38,8 @@
           class="entrada_texto"
           required
           minlength="6"
-          #SALVAR_ENDERECO_DA_EMPRESA
-          (keyup)="salvar_endereco_da_empresa(SALVAR_ENDERECO_DA_EMPRESA.value)"
+          #SALVAR_ENDERECO_EMPRESA
+          (keyup)="salvarEndercoEmpresa(SALVAR_ENDERECO_EMPRESA.value)"
         />
 
         <h5>E-mail da empresa</h5>
@@ -49,8 +49,8 @@
           class="entrada_texto"
           required
           minlength="2"
-          #SALVAR_EMAIL_DA_EMPRESA
-          (keyup)="salvar_email_da_empresa(SALVAR_EMAIL_DA_EMPRESA.value)"
+          #SALVAR_EMAIL_EMPRESA
+          (keyup)="salvarEmailEmpresa(SALVAR_EMAIL_EMPRESA.value)"
         />
 
         <h5>Telefone</h5>
@@ -61,8 +61,8 @@
           required
           minlength="8"
           maxlength="11"
-          #SALVAR_TELEFONE_DA_EMPRESA
-          (keyup)="salvar_telefone_da_empresa(SALVAR_TELEFONE_DA_EMPRESA.value)"
+          #SALVAR_TELEFONE_EMPRESA
+          (keyup)="salvarTelefoneEmpresa(SALVAR_TELEFONE_EMPRESA.value)"
         />
 
         <h5>Senha</h5>
@@ -73,8 +73,8 @@
           required
           minlength="2"
           maxlength="10"
-          #SALVAR_SENHA_DA_EMPRESA
-          (keyup)="salvar_senha_da_empresa(SALVAR_SENHA_DA_EMPRESA.value)"
+          #SALVAR_SENHA_EMPRESA
+          (keyup)="salvarSenhaEmpresa(SALVAR_SENHA_EMPRESA.value)"
         />
 
         <h5>Digite novamente a senha</h5>
@@ -85,16 +85,16 @@
           required
           minlength="2"
           maxlength="10"
-          #SALVAR_SENHA_DA_EMPRESA_NOVAMENTE
+          #SALVAR_SENHA_EMPRESA_NOVAMENTE
           (keyup)="
-            salvar_senha_da_empresa_novamente(
-              SALVAR_SENHA_DA_EMPRESA_NOVAMENTE.value
+            salvarSenhaEmpresaNovamente(
+              SALVAR_SENHA_EMPRESA_NOVAMENTE.value
             )
           "
         />
         <p></p>
 
-        <button class="centralizarbutton" (click)="click_log_in()">
+        <button class="centralizarbutton" (click)="clickLogin()">
           Log In
         </button>
       </div>

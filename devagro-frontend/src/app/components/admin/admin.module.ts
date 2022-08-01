@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Rotas
 import { AdminRoutingModule } from './admin-routing.module';
@@ -27,6 +27,12 @@ import { FuncionarioAlteraCadastroComponent } from './pages/funcionarios/funcion
 import { PropriedadesCadastradasComponent } from './pages/fazendas/propriedades-cadastradas/propriedades-cadastradas.component';
 import { ChartsComponent } from './pages/dashboard/charts/charts.component';
 import { EmpresaCadastroComponent } from './pages/empresa-cadastro/empresa-cadastro.component';
+import { ButtonModule } from 'primeng/button';
+import {InputTextModule} from 'primeng/inputtext';
+import {CalendarModule} from 'primeng/calendar';
+import {TableModule} from 'primeng/table';
+import {CheckboxModule} from 'primeng/checkbox';
+import {SpeedDialModule} from 'primeng/speeddial';
 
 
 @NgModule({
@@ -56,7 +62,14 @@ import { EmpresaCadastroComponent } from './pages/empresa-cadastro/empresa-cadas
     MatIconModule,
     MatButtonModule,
     LayoutModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    ButtonModule,
+    InputTextModule,
+    CalendarModule,
+    TableModule,
+    CheckboxModule,
+    SpeedDialModule
     
   ]
 })

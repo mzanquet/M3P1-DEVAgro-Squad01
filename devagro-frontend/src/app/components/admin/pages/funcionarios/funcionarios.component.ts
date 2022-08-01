@@ -1,30 +1,38 @@
 import { Component, Input, OnInit, TRANSLATIONS } from '@angular/core';
+import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-funcionarios',
   templateUrl: './funcionarios.component.html',
   styleUrls: ['./funcionarios.component.css'],
+  styles: [`
+      :host ::ng-deep button {
+          margin-right: .5em;
+      }
+    `]
 })
+
 export class FuncionariosComponent implements OnInit {
 
-  qtdeFazendas = Number(localStorage.getItem('quantidade_fazendas'));
-  aprovaCadastro: boolean = this.qtdeFazendas > 0 ? true : false
+  qtdeFazendas = Number(localStorage.getItem('QuantidadeFazendas'));
+  aprovaCadastro: boolean = this.qtdeFazendas > 0 ? true : false;
 
   @Input() public titulo: string = 'Funcionários';
 
   nome: string = '';
   id: Number = 0;
   fazenda: string = '';
-  CPF: string = '';
+  cpf: string = '';
   telefone: string = '';
-  funcao_principila: string = '';
+  funcaoPrincipal: string = '';
   ativo: string = "";
 
-  constructor() {}
+  constructor(private primengConfig: PrimeNGConfig) {};
 
-  localStorageView: Array<Object> = Object(
+  localStorageView: Array<string> = Object(
     JSON.parse(String(localStorage.getItem('listaFuncionarios')))
   );
+
   localStorageViewObject: Array<Object> = [];
   listaObj: Array<object> = [];
   listNome: Array<any> = [];
@@ -33,18 +41,23 @@ export class FuncionariosComponent implements OnInit {
   listAtivo: Array<any> = [];
 
   ngOnInit(): void {
-    if (Object.keys(this.localStorageView).length != 0) {
+
+    console.log(this.localStorageView);
+
+    /* if (Object.keys(this.localStorageView).length != 0) {
       this.localStorageViewObject.forEach((element) => {
         console.log(element);
-      });
-      this.localStorageView.forEach((element) => {
-        console.log(JSON.parse(String(element)));
-        this.localStorageViewObject.push(JSON.parse(String(element)));
-        console.log(this.localStorageViewObject);
-        console.log(element);
+      }); */
+
+    this.localStorageView.forEach((element: string) => {
+      console.log(JSON.parse(String(element)));
+      this.localStorageViewObject.push(JSON.parse(element));
+      console.log(this.localStorageViewObject);
+      console.log(element);
         //console.log(element.isPrototypeOf)
-      });
-      this.localStorageViewObject.forEach((elemental) => {
+    });
+
+      /* this.localStorageViewObject.forEach((elemental) => {
         Object.entries(elemental).forEach((element) => {});
         console.log(Object.entries(elemental));
       });
@@ -60,105 +73,98 @@ export class FuncionariosComponent implements OnInit {
       this.pegaFuncao();
       this.pegaAtividade();
       //this.pegaFazenda()
-    }
+    } */
   }
 
-  pegaNome():any{
+  pegaNome(): any {
     this.localStorageViewObject.forEach(elemental => {
-      Object.entries(elemental).forEach(element=>{
-        if(element[0]=="nome"){
-          console.log(element[1])
-          this.nome=element[1]
-          console.log(this.nome)
-          this.listNome.push(this.nome)
-          console.log(this.listNome)
-          return element[1].toString
-        }
+      Object.entries(elemental).forEach(element=> {
+        if(element[0]=="nome") {
+          console.log(element[1]);
+          this.nome=element[1];
+          console.log(this.nome);
+          this.listNome.push(this.nome);
+          console.log(this.listNome);
+          return element[1].toString;
+        };
+      });
 
-      })
-
-      console.log(Object.entries(elemental))
+      console.log(Object.entries(elemental));
 
     });
-    }
-    pegaFazenda(){
-      this.localStorageViewObject.forEach(elemental => {
-        Object.entries(elemental).forEach(element=>{
-          if(element[0]=="fazenda"){
-            console.log(element[1])
-            this.fazenda=element[1]
-            console.log(this.fazenda)
-            this.listFazenda.push(this.fazenda)
-            console.log(this.listFazenda)
-            return element[1].toString
-          }
+  };
 
-        })
+  pegaFazenda() {
+      this.localStorageViewObject.forEach(elemental => {
+        Object.entries(elemental).forEach(element=> {
+          if(element[0]=="fazenda") {
+            console.log(element[1]);
+            this.fazenda=element[1];
+            console.log(this.fazenda);
+            this.listFazenda.push(this.fazenda);
+            console.log(this.listFazenda);
+            return element[1].toString;
+          };
+
+        });
+
+        console.log(Object.entries(elemental));
+
+      });
+
+  };
+
+  pegaFuncao() {
+      this.localStorageViewObject.forEach(elemental => {
+        Object.entries(elemental).forEach(element=> {
+          if(element[0]=="funcao_princila") {
+            console.log(element[1]);
+            this.funcaoPrincipal=element[1];
+            console.log(this.funcaoPrincipal);
+            this.listFuncao.push(this.funcaoPrincipal);
+            console.log(this.listFuncao);
+            return element[1].toString;
+          };
+
+        });
 
         console.log(Object.entries(elemental))
 
       });
 
-    }
+  };
 
-    pegaFuncao(){
-      this.localStorageViewObject.forEach(elemental => {
-        Object.entries(elemental).forEach(element=>{
-          if(element[0]=="funcao_princila"){
-            console.log(element[1])
-            this.funcao_principila=element[1]
-            console.log(this.funcao_principila)
-            this.listFuncao.push(this.funcao_principila)
-            console.log(this.listFuncao)
-            return element[1].toString
-          }
+  pegaTelefone() {};
 
-        })
+  pegaFuncaoPrincipal() {};
 
-        console.log(Object.entries(elemental))
+  pegaAtividade() {
+    this.localStorageViewObject.forEach(elemental => {
+      Object.entries(elemental).forEach(element=> {
+        if(element[0]=="ativo") {
+          console.log(element[1]);
+          this.ativo=element[1];
+
+          if(this.ativo=="") {
+            this.ativo="não";
+          } else {
+            this.ativo="sim";
+          };
+          console.log(this.ativo);
+          this.listAtivo.push(this.ativo);
+          console.log(this.listAtivo);
+          return element[1].toString;
+        };
 
       });
 
-    }
-
-
-
-
-
-
-  pegaTelefone(){}
-  pegaFUncaoPrincipal(){}
-  pegaAtividade(){
-    this.localStorageViewObject.forEach(elemental => {
-      Object.entries(elemental).forEach(element=>{
-        if(element[0]=="ativo"){
-          console.log(element[1])
-          this.ativo=element[1]
-
-          if(this.ativo==""){this.ativo="não"}else{
-            this.ativo="sim"
-          }
-          console.log(this.ativo)
-          this.listAtivo.push(this.ativo)
-          console.log(this.listAtivo)
-          return element[1].toString
-        }
-
-      })
-
-      console.log(Object.entries(elemental))
+      console.log(Object.entries(elemental));
 
     });
-  }
 
+  };
 
-
-
-  addFuncionarios(){
-
-
-
-
+  /* addFuncionarios() {
 
    // product.preventDefault();
 
@@ -239,7 +245,7 @@ export class FuncionariosComponent implements OnInit {
        console.log(element.isPrototypeOf)
 
      });
-  }
+  } */
 
 
 }
